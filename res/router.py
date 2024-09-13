@@ -6,7 +6,7 @@ from res.database.classes import DogWalkORM
 router = APIRouter()
 
 
-@router.get("/get_orders")
+@router.get("/get_orders", response_model=list[DogWalk], tags=["Orders"], summary="Get all orders by date")
 async def get_orders(
         date: str = Query(..., title="Date", description="Дата в формате dd.mm.yyyy", examples=["13.09.2024"],
                           pattern=r"(0?[1-9]|[12][0-9]|3[01])\.(0?[1-9]|1[0-2])\.20\d{2}")) -> list[DogWalk]:
@@ -18,7 +18,7 @@ async def get_orders(
     return await DogWalkORM.filter(date=date).all()
 
 
-@router.post("/add_order")
+@router.post("/add_order", response_model=dict, tags=["Orders"], summary="Add order")
 async def add_order(order: DogWalk):
     """
     Ручка для добавления прогулки пользователями
