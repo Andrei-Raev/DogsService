@@ -43,6 +43,5 @@ def test_invalid_date_format(mocker):
     # Дата из прошлого
     with pytest.raises(ValidationError):
         DogWalk(flat=1, dog_name="Лаки", dog_breed="Чихуахуа", time="08:00", date="10.09.2020")
-
     with pytest.raises(ValidationError):
         DogWalk(flat=1, dog_name="Лаки", dog_breed="Чихуахуа", time="23:30", date="10.09.2005")

@@ -12,8 +12,8 @@ client = TestClient(app)
 
 async def init_db():
     await Tortoise.init(
-        db_url='sqlite://:memory:',  # Используем SQLite в памяти для тестов
-        modules={'models': ['res.database.classes']}  # Убедитесь, что модуль корректно указывает на модели
+        db_url='sqlite://:memory:',
+        modules={'models': ['res.database.classes']}
     )
     await Tortoise.generate_schemas()
 
@@ -23,9 +23,9 @@ asyncio.run(init_db())
 
 @pytest_asyncio.fixture(scope='module', autouse=True)
 async def initialize_tests():
-    await init_db()  # Инициализация базы данных для каждого модуля тестов
+    await init_db()
     yield
-    await Tortoise.close_connections()  # Закр
+    await Tortoise.close_connections()
 
 
 @pytest.fixture
