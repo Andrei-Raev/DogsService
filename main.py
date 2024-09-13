@@ -6,8 +6,7 @@ from tortoise.contrib.fastapi import RegisterTortoise
 from settings import TORTOISE_ORM
 
 app = FastAPI(title="Dog Service", version="1.0.0",
-              description="Сервис для управления графиком прогулок с собаками",
-              )
+              description="Сервис для управления графиком прогулок с собаками")
 app.include_router(dog_service_router)
 
 # Инициализация базы данных
