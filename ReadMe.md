@@ -48,4 +48,4 @@ docker build -t dogwalk .
 ```bash
 docker run -p 8000:8000 dogwalk
 ```
-![](https://andreis-vibes.ru/nothing)
+![](https://andreis-vibes.ru/nothing?)
